@@ -1,0 +1,30 @@
+Spotify Recommendation Algorithm
+By Nathan Susser, Ashlin Rabindra, Ken Zhu,
+
+Description:
+We used the spotify api to access spotify's data on songs, collecting a database of 6,000 songs and their features, which we then compared against a given playlist from the user's account. Specifically, we pulled 1000 songs from six genres and imported each tracks data into json files and pulled the track data from each song in the given playlist. We then used the Pearson Correlation, similar to cosine similarity but normalizes for the mean values, to recommend the 20 most similar songs and add them to a newly created playlist.
+
+Information Networks:
+We used the spotify api which sends get and post requests to spotify receives a response with data. It requires using a client ID and client Secret from a Spotify developer account to send a post request to receive an access token, and then getting a URL using a get request from a query. This URL is from the redirect URL and the end query contains the authorization code. The authorization code allows the program to be authorized to access spotify user data, and we can post request the refresh token so that you don't have to request a new access token every hour. We then use get requests to retrieve specific data for songs, artists, playlists, user, etc.
+
+Document Search:
+We used regex to find the song id from the Spotify URI for the song, a unique number identifier at the end of a string. Saving the song id, we can use it for a get request of the song's audio features, which we then use to compare the songs.
+
+Advance Topic (recommendation algorithm):
+Pearson Correlation:
+The Pearson Correlation is a formula that sums up the product of the 'X' feature of user track minus the average of 'X' feature * the 'X' feature of recommended track minus the average of 'X' feature. It then divides by the magnitude which adds the square root of the sum of the squares of all the features for the users track and the square root the sum of the squares of all the features for the recommended track.
+
+Once the Pearson Correlation is added, it is then added to a dictionary and ultimately, the average Pearson Correlation is calculated for each recommended track.
+
+The Pearson Correlation has a noticeable improvement from our prior recommendation systems of absolute value differences (intended to find strong triadic closure) and even regular cosine similarity of each individual feature.
+Initially, we noticed that purely using Pearson Correlation resulted in many songs that didn't match the typical genre of the input playlist, so we added a slight weight for genre as well. 
+
+While it was a joint effort and the code was iterated multiple times by all members, the work breakdown is as follows:
+Nathan Susser: Recommendation Algorithm with Cosine Similarity and Pearson Correlation; Readme.txt
+Ashlin Rabindra: API; get requests for data; JSON files; Function to make playlist on user account and basic outline for recommendation function
+Ken Zhu: User Accessibility; Recommendation Algorithm using Graph Theory and Cosine Similarity; Data on each Feature; User Manual
+
+* We all figured out how to use our own API's from our unique spotify developer accounts, but Ashlin coded the programs to access the API and pull the data.
+
+** In case there is an error with loading the API, please feel free to contact any one of use at
+nsusser@sas.upenn.edu, ashlinr@seas.upenn.edu, kenzgf@seas.upenn.edu
