@@ -26,5 +26,5 @@ Ken Zhu: User Accessibility; Recommendation Algorithm using Graph Theory and Cos
 
 * We all figured out how to use our own API's from our unique spotify developer accounts, but Ashlin coded the programs to access the API and pull the data.
 
-** In case there is an error with loading the API, please feel free to contact any one of use at
+** In case there is an error with loading the API, please feel free to contact any one of us at
 nsusser@sas.upenn.edu, ashlinr@seas.upenn.edu, kenzgf@seas.upenn.edu
